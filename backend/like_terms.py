@@ -51,8 +51,13 @@ class LikeTerm:
         for n in first_part_of_equation:
             place += 1
             if n == '-' or n == '+' or n == '*' or n == '/':
-                holder = first_part_of_equation[place] + (first_part_of_equation[+1])
+                holder = first_part_of_equation[place] + (first_part_of_equation[place+1])
                 first_part_of_equation_.append(holder)
+        first_part_of_equation_ok = 0
+        for n in first_part_of_equation_:
+            first_part_of_equation_ok += int(n[:-1])
+        first_part_of_equation_ok = str(first_part_of_equation_ok) + first_part_of_equation_[0][-1:]
+        return first_part_of_equation_ok
         
 
     def getResult(self):
