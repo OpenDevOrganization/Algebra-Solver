@@ -21,6 +21,9 @@ class LikeTerm:
 
     def _filter_constants(self, equation_part):
         return [i for i in equation_part if i.isdigit()]
+    
+    def _filter_unknowns(self, equation_part):
+        return [i for i in equation_part if i.isdigit() == False]
 
     def _filter_variables(self, equation_part):
         return [i for i in equation_part if all(j.isalnum() for j in i)&any(j.isalpha() for j in i)]
@@ -39,6 +42,17 @@ class LikeTerm:
         equation = self.split_equation(self.equation)
         first_part_of_equation = self._filter_variables(equation[0].split(" "))
         rest_part_of_equation = self._filter_variables("".join(equation[1:]).split(" "))
+        
+    def calculate_unknowns(self):
+        equation = self.split_equation(self.equation)
+        first_part_of_equation = [*map(str, self._filter_unknowns(equation[0].split(" ")))]
+        first_part_of_equation_ = []
+        place = -1
+        for n in first_part_of_equation:
+            place += 1
+            if n == '-' or n == '+' or n == '*' or n == '/':
+                holder = first_part_of_equation[place] + (first_part_of_equation[+1])
+                first_part_of_equation_.append(holder)
         
 
     def getResult(self):
