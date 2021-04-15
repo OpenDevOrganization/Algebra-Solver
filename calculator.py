@@ -99,7 +99,7 @@ button_add = Button(root, text='+', padx=39, pady=20, command=button_add)
 button_equal = Button(root, text='=', padx=91, pady=20, command= button_equal)
 button_clear = Button(root, text='Clear', padx=79,pady=20, command=button_clear)
 
-button_square = Button(root, text = 'Square', padx=73, pady=20, command=button_square)
+button_square = Button(root, text = 'x²', padx=73, pady=20, command=button_square)
 
 
 button_subtract = Button(root, text='-', padx=41, pady=20, command=button_subtract)
