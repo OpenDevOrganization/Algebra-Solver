@@ -40,9 +40,8 @@ def button_equal():
         e.insert(0, f_num * int(second_number))
     elif math == "division":
         e.insert(0, f_num / int(second_number))
-    # elif math == "square":
-    #     e.insert(0, f_num * f_num)
-
+    elif math == "power":
+        e.insert(0, pow(f_num, int(second_number)))
 
 
 def button_subtract():
@@ -72,7 +71,6 @@ def button_divide():
     e.delete(0, END)
 
 
-
 def button_square():
     number = e.get()
     global f_num
@@ -82,6 +80,14 @@ def button_square():
     e.delete(0, END)
     e.insert(0, f_num * f_num)
 
+
+def button_power():
+    number = e.get()
+    global f_num
+    global math
+    math = "power"
+    f_num = int(number)
+    e.delete(0, END)
 
 
 # Define buttons
@@ -99,12 +105,13 @@ button_add = Button(root, text='+', padx=39, pady=20, command=button_add)
 button_equal = Button(root, text='=', padx=91, pady=20, command= button_equal)
 button_clear = Button(root, text='Clear', padx=79,pady=20, command=button_clear)
 
-button_square = Button(root, text = 'x²', padx=73, pady=20, command=button_square)
+button_square = Button(root, text='x²', padx=73, pady=20, command=button_square)
+button_power = Button(root, text='xʸ', padx=73, pady=20, command=button_power)
 
 
 button_subtract = Button(root, text='-', padx=41, pady=20, command=button_subtract)
-button_multiply = Button(root, text='*', padx=40, pady=20, command= button_multiply)
-button_divide = Button(root, text='/', padx=41,pady=20, command=button_divide)
+button_multiply = Button(root, text='*', padx=40, pady=20, command=button_multiply)
+button_divide = Button(root, text='/', padx=41, pady=20, command=button_divide)
 
 # Put the buttons on the screen
 button_1.grid(row=3, column=0)
@@ -128,8 +135,8 @@ button_subtract.grid(row=6, column=0)
 button_multiply.grid(row=6, column=1)
 button_divide.grid(row=6, column=2)
 
-button_square.grid(row=7, column=0, columnspan='2')
-
+button_square.grid(row=7, column=0)
+button_power.grid(row=7, column=1)
 
 
 root.mainloop()
